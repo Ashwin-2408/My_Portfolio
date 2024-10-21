@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* styles/globals.css */
+.bangers-font {
+  font-family: "Bangers", cursive;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevents scrolling */
+
+}
+@keyframes rollIn {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.rolling-text {
+  display: inline-block; /* Ensures the animation works properly */
+  animation: rollIn 0.5s ease forwards; /* Customize duration and easing */
+}

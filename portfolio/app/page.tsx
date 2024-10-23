@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Header from "./Components/Header";
 import Hero from "./Components/Hero";
+import Skillcard from "./Components/Skillcard";
 
 const App = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
@@ -24,9 +25,13 @@ const App = () => {
   }, []);
 
   return (
-    <div onMouseMove={handleMouseMove} >
+    <div onMouseMove={handleMouseMove}>
       <Header />
       <Hero isHeaderVisible={isHeaderVisible} />
+      <Skillcard title={"ashwin"} description={"hello"}></Skillcard>
+      
+
+      
     </div>
   );
 };

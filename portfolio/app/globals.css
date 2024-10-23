@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar */
+}
 
 /* styles/globals.css */
 .bangers-font {
@@ -11,8 +14,6 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden; /* Prevents scrolling */
-
 }
 @keyframes rollIn {
   0% {

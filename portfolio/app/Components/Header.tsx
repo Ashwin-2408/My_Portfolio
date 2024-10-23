@@ -11,6 +11,8 @@ import Link from "next/link";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+  const [scrollY, setScrollY] = useState(0); // Initialize scrollY to 0
 
   const handleMouseMove = (event) => {
     const headerHeight = 80;
@@ -21,6 +23,22 @@ const Header = () => {
     }
   };
 
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+    setIsSticky(window.scrollY > 100); // Adjust threshold as needed
+  };
+
+  useEffect(() => {
+    const handleScrollDebounced = () => {
+      requestAnimationFrame(handleScroll); // Optimize scroll handling
+    };
+
+    window.addEventListener("scroll", handleScrollDebounced);
+    return () => {
+      window.removeEventListener("scroll", handleScrollDebounced);
+    };
+  }, []);
+
   useEffect(() => {
     window.addEventListener("mousemove", handleMouseMove);
     return () => {
@@ -30,9 +48,9 @@ const Header = () => {
 
   return (
     <motion.div
-      className={`p-7 px-12 bg-white flex flex-row justify-between ${
+      className={`p-7 px-12 bg-white flex flex-row justify-between transition-opacity duration-300 ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
-      } transition-opacity duration-300`}
+      } ${isSticky ? "fixed top-0 left-0 w-full z-50 shadow-md" : ""}`} // Add shadow for sticky effect
       initial={{ y: -100 }}
       animate={{ y: isVisible ? 0 : -100 }}
     >

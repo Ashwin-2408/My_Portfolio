@@ -12,6 +12,7 @@ const Hero = ({ isHeaderVisible }) => {
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [showCursor, setShowCursor] = useState(true);
+  
 
   useEffect(() => {
     const currentWord = TYPING_TEXTS[index];
@@ -43,7 +44,7 @@ const Hero = ({ isHeaderVisible }) => {
     <div
       className={`flex flex-row justify-between items-center transition-all duration-300 ${
         isHeaderVisible ? "h-[calc(100vh-4rem)]" : "h-[100vh]" // Adjusting height based on header visibility
-      } ${isHeaderVisible ? "mt-0" : "-mt-20"}`} // Negative margin to move it up when header is hidden
+      } ${isHeaderVisible ? "-mt-5" : "-mt-28"}`} // Negative margin to move it up when header is hidden
     >
       <div className="flex flex-col items-center px-4">
         <div className="flex flex-row items-center mb-4 ml-8">
@@ -106,7 +107,6 @@ const Hero = ({ isHeaderVisible }) => {
           priority
         />
       </div>
-      
     </div>
   );
 };

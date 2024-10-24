@@ -12,7 +12,6 @@ const Hero = ({ isHeaderVisible }) => {
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [showCursor, setShowCursor] = useState(true);
-  
 
   useEffect(() => {
     const currentWord = TYPING_TEXTS[index];

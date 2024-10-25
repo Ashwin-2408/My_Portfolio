@@ -1,8 +1,6 @@
-"use client";
-import Image from "next/image";
 import { motion } from "framer-motion";
-
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const TYPING_TEXTS = ["ASHWIN T"];
 
@@ -15,7 +13,6 @@ const Hero = ({ isHeaderVisible }) => {
 
   useEffect(() => {
     const currentWord = TYPING_TEXTS[index];
-
     if (isDeleting) {
       if (charIndex > 0) {
         setTimeout(() => setCharIndex((prev) => prev - 1), 50);
@@ -30,7 +27,6 @@ const Hero = ({ isHeaderVisible }) => {
         setTimeout(() => setIsDeleting(true), 1500);
       }
     }
-
     setText(currentWord.slice(0, charIndex));
   }, [charIndex, isDeleting, index]);
 
@@ -39,13 +35,23 @@ const Hero = ({ isHeaderVisible }) => {
     return () => clearInterval(cursorBlink);
   }, []);
 
+  // Function to handle the download
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/resume.pdf";
+    link.download = "resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div
       className={`flex flex-row justify-between items-center transition-all duration-300 ${
-        isHeaderVisible ? "h-[calc(100vh-4rem)]" : "h-[100vh]" // Adjusting height based on header visibility
-      } ${isHeaderVisible ? "-mt-5" : "-mt-28"}`} // Negative margin to move it up when header is hidden
+        isHeaderVisible ? "h-[calc(100vh-4rem)] -mt-5" : "h-[100vh] -mt-28"
+      }`}
     >
-      <div className="flex flex-col items-center px-4">
+      <div className="flex flex-col items-center px-4 w-10/12">
         <div className="flex flex-row items-center mb-4 ml-8">
           <motion.div
             className="w-64 h-64 bg-gray-300 rounded-full overflow-hidden shadow-md"
@@ -79,8 +85,9 @@ const Hero = ({ isHeaderVisible }) => {
             <div className="px-40 mt-5">
               <div className="w-[160px]">
                 <button
-                  className="bg-[#3B82F6] text-black  text-xl bangers-font text-bold px-4 py-2 rounded-full hover:bg-grey-600 w-full transition duration-300 shadow-sm"
+                  className="bg-[#3B82F6] text-black text-xl bangers-font font-bold px-4 py-2 rounded-full hover:bg-grey-600 w-full transition duration-300 shadow-sm"
                   aria-label="View Resume"
+                  onClick={handleDownload}
                 >
                   Download CV
                 </button>
@@ -97,15 +104,67 @@ const Hero = ({ isHeaderVisible }) => {
           </h2>
         </div>
       </div>
-      <div className="pt-5">
-        <Image
-          src="/Images/download.jpeg"
-          alt="Hero Image"
-          width={350}
-          height={350}
-          priority
-        />
-      </div>
+
+      {/* Enhanced Animated Card without Gradient */}
+      <motion.div
+        className="w-1/3 h-[400px] bg-white text-black rounded-lg p-8 mr-8 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out"
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        whileHover={{ scale: 1.05 }} // Add scaling effect on hover
+      >
+        <p className="text-lg mb-4 bangers-font">
+          Hi, I'm Ashwin, a Full Stack Developer and Competitive Programmer
+          passionate about building scalable, efficient web applications.
+        </p>
+        <div className="space-y-4">
+          <motion.div
+            className="flex items-center"
+            initial={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+          >
+            <span className="material-icons mr-3">code</span>
+            <p className="text-lg bangers-font">
+              Expert in modern web technologies
+            </p>
+          </motion.div>
+          <motion.div
+            className="flex items-center"
+            initial={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
+          >
+            <span className="material-icons mr-3">speed</span>
+            <p className="text-lg bangers-font">
+              Focused on performance and optimization
+            </p>
+          </motion.div>
+          <motion.div
+            className="flex items-center"
+            initial={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
+          >
+            <span className="material-icons mr-3">group</span>
+            <p className="text-lg bangers-font">
+              Collaborative and team-oriented mindset
+            </p>
+          </motion.div>
+          <motion.div
+            className="flex items-center"
+            initial={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.4 }}
+          >
+            <span className="material-icons mr-3">star</span>
+            <p className="text-lg bangers-font">
+              Committed to continuous learning and improvement
+            </p>
+          </motion.div>
+          
+        </div>
+      </motion.div>
     </div>
   );
 };

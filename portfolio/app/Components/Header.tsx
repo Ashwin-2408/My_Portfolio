@@ -5,6 +5,11 @@ import {
   faGithub,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+import {
+  faHome,
+  faUser,
+  faFolderOpen,
+} from "@fortawesome/free-solid-svg-icons"; // Import new icons
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -12,7 +17,7 @@ import Link from "next/link";
 const Header = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-  const [scrollY, setScrollY] = useState(0); // Initialize scrollY to 0
+  const [scrollY, setScrollY] = useState(0);
 
   const handleMouseMove = (event) => {
     const headerHeight = 80;
@@ -25,12 +30,12 @@ const Header = () => {
 
   const handleScroll = () => {
     setScrollY(window.scrollY);
-    setIsSticky(window.scrollY > 100); // Adjust threshold as needed
+    setIsSticky(window.scrollY > 100);
   };
 
   useEffect(() => {
     const handleScrollDebounced = () => {
-      requestAnimationFrame(handleScroll); // Optimize scroll handling
+      requestAnimationFrame(handleScroll);
     };
 
     window.addEventListener("scroll", handleScrollDebounced);
@@ -50,19 +55,28 @@ const Header = () => {
     <motion.div
       className={`p-7 px-12 bg-white flex flex-row justify-between transition-opacity duration-300 ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
-      } ${isSticky ? "fixed top-0 left-0 w-full z-50 shadow-md" : ""}`} // Add shadow for sticky effect
+      } ${isSticky ? "fixed top-0 left-0 w-full z-50 shadow-md" : ""}`}
       initial={{ y: -100 }}
       animate={{ y: isVisible ? 0 : -100 }}
     >
       <div className="flex flex-row gap-24 pt-2">
-        <Link href="/" className="font-bold bangers-font text-xl">
-          HOME
+        <Link
+          href="/"
+          className="font-bold bangers-font text-xl flex items-center"
+        >
+          <FontAwesomeIcon icon={faHome} className="mr-2" /> HOME
         </Link>
-        <Link href="/about" className="font-bold bangers-font text-xl">
-          ABOUT
+        <Link
+          href="/about"
+          className="font-bold bangers-font text-xl flex items-center"
+        >
+          <FontAwesomeIcon icon={faUser} className="mr-2" /> ABOUT
         </Link>
-        <Link href="/projects" className="font-bold bangers-font text-xl">
-          PROJECTS
+        <Link
+          href="/projects"
+          className="font-bold bangers-font text-xl flex items-center"
+        >
+          <FontAwesomeIcon icon={faFolderOpen} className="mr-2" /> PROJECTS
         </Link>
       </div>
       <div>

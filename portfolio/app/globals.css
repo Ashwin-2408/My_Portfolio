@@ -9,6 +9,10 @@ body::-webkit-scrollbar {
 .bangers-font {
   font-family: "Bangers", cursive;
 }
+
+.poppins {
+  font-family: "Poppins", sans-serif;
+}
 html,
 body {
   margin: 0;

@@ -60,7 +60,9 @@ const ProgrammingLanguagesCard = () => {
       <div className="mb-6">
         <h3 className="text-2xl font-bold mb-3">Programming Languages</h3>
         <p className="text-gray-700">
-          Click on the icons to learn more about each language.
+          I have experience with several programming languages that enable me to
+          build diverse applications and solve complex problems. My primary
+          languages include
         </p>
       </div>
 

@@ -5,6 +5,7 @@ import Hero from "./Components/Hero";
 import FloatingCard from "./Components/Skillcard";
 import ProgrammingLanguagesCard from "./Components/Programming_Languages";
 import DevelopmentToolsCard from "./Components/DevelopmentTools";
+import CodingProfiles from "./Components/CodingProfiles";
 
 const App = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
@@ -53,6 +54,7 @@ const App = () => {
     <div>
       <Header isVisible={isHeaderVisible} />
       <Hero isHeaderVisible={isHeaderVisible} />
+
       <div
         ref={skillSectionRef}
         className={`flex justify-between items-stretch mt-[0px] m-4 p-4 space-x-4 transition-all duration-1000 ${
@@ -64,6 +66,9 @@ const App = () => {
         <FloatingCard />
         <ProgrammingLanguagesCard />
         <DevelopmentToolsCard />
+      </div>
+      <div className="mt-[50px]">
+      <CodingProfiles ></CodingProfiles>
       </div>
     </div>
   );

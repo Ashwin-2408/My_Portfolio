@@ -107,7 +107,7 @@ const Hero = ({ isHeaderVisible }) => {
 
       {/* Enhanced Animated Card without Gradient */}
       <motion.div
-        className="w-1/3 h-[400px] bg-white text-black rounded-lg p-8 mr-8 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out"
+        className="w-1/3 h-[400px] bg-white text-black rounded-xl p-8 mr-12 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out "
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
@@ -162,7 +162,7 @@ const Hero = ({ isHeaderVisible }) => {
               Committed to continuous learning and improvement
             </p>
           </motion.div>
-          
+         
         </div>
       </motion.div>
     </div>

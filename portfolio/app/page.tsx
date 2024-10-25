@@ -7,6 +7,7 @@ import ProgrammingLanguagesCard from "./Components/Programming_Languages";
 import DevelopmentToolsCard from "./Components/DevelopmentTools";
 import CodingProfiles from "./Components/CodingProfiles";
 
+
 const App = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [isSkillsVisible, setIsSkillsVisible] = useState(false);
@@ -68,8 +69,9 @@ const App = () => {
         <DevelopmentToolsCard />
       </div>
       <div className="mt-[50px]">
-      <CodingProfiles ></CodingProfiles>
+        <CodingProfiles></CodingProfiles>
       </div>
+      
     </div>
   );
 };

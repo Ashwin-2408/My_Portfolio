@@ -98,8 +98,16 @@ const Header = () => {
             className="h-[30px]"
           />
         </Link>
-        <FontAwesomeIcon icon={faGithub} className="h-[30px]" />
-        <FontAwesomeIcon icon={faInstagram} className="h-[30px]" />
+        <Link href="https://github.com/Ashwin-2408" target="_blank">
+          <FontAwesomeIcon icon={faGithub} className="h-[30px]" />
+        </Link>
+        <Link href="https://github.com/Ashwin-2408" target="_blank">
+          <FontAwesomeIcon
+            icon={faInstagram}
+            color="#ff0862"
+            className="h-[30px]"
+          />
+        </Link>
       </div>
     </motion.div>
   );

@@ -9,7 +9,7 @@ import {
   faHome,
   faUser,
   faFolderOpen,
-} from "@fortawesome/free-solid-svg-icons"; // Import new icons
+} from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -53,41 +53,44 @@ const Header = () => {
 
   return (
     <motion.div
-      className={`p-7 px-12 bg-white flex flex-row justify-between transition-opacity duration-300 ${
+      className={`p-4 md:p-7 px-6 md:px-12 bg-white flex flex-row justify-between items-center transition-opacity duration-300 ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       } ${isSticky ? "fixed top-0 left-0 w-full z-50 shadow-md" : ""}`}
       initial={{ y: -100 }}
       animate={{ y: isVisible ? 0 : -100 }}
     >
-      <div className="flex flex-row gap-24 pt-2">
+      <div className="flex flex-row gap-4 md:gap-24 pt-2">
         <Link
           href="/"
-          className="font-bold bangers-font text-xl flex items-center"
+          className="font-bold bangers-font text-lg md:text-xl flex items-center"
         >
-          <FontAwesomeIcon icon={faHome} className="mr-2" /> HOME
+          <FontAwesomeIcon icon={faHome} className="mr-1 md:mr-2" />
+          <span className="hidden md:inline">HOME</span>
         </Link>
         <Link
           href="/about"
-          className="font-bold bangers-font text-xl flex items-center"
+          className="font-bold bangers-font text-lg md:text-xl flex items-center"
         >
-          <FontAwesomeIcon icon={faUser} className="mr-2" /> ABOUT
+          <FontAwesomeIcon icon={faUser} className="mr-1 md:mr-2" />
+          <span className="hidden md:inline">ABOUT</span>
         </Link>
         <Link
           href="/projects"
-          className="font-bold bangers-font text-xl flex items-center"
+          className="font-bold bangers-font text-lg md:text-xl flex items-center"
         >
-          <FontAwesomeIcon icon={faFolderOpen} className="mr-2" /> PROJECTS
+          <FontAwesomeIcon icon={faFolderOpen} className="mr-1 md:mr-2" />
+          <span className="hidden md:inline">PROJECTS</span>
         </Link>
       </div>
       <div>
         <Link
           href="/"
-          className="w-12 h-12 bg-black text-white flex items-center justify-center rounded-full text-2xl font-bold"
+          className="w-10 h-10 md:w-12 md:h-12 bg-black text-white flex items-center justify-center rounded-full text-lg md:text-2xl font-bold"
         >
           AT
         </Link>
       </div>
-      <div className="flex flex-row gap-12 justify-end pr-7 pt-2">
+      <div className="flex flex-row gap-6 md:gap-12 justify-end pr-6 md:pr-7 pt-2">
         <Link
           href="https://www.linkedin.com/in/ashwin-t-97b383290"
           target="_blank"
@@ -95,17 +98,17 @@ const Header = () => {
           <FontAwesomeIcon
             icon={faLinkedin}
             color="#1e3050"
-            className="h-[30px]"
+            className="h-[24px] md:h-[30px]"
           />
         </Link>
         <Link href="https://github.com/Ashwin-2408" target="_blank">
-          <FontAwesomeIcon icon={faGithub} className="h-[30px]" />
+          <FontAwesomeIcon icon={faGithub} className="h-[24px] md:h-[30px]" />
         </Link>
         <Link href="https://github.com/Ashwin-2408" target="_blank">
           <FontAwesomeIcon
             icon={faInstagram}
             color="#ff0862"
-            className="h-[30px]"
+            className="h-[24px] md:h-[30px]"
           />
         </Link>
       </div>

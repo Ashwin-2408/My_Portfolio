@@ -80,17 +80,17 @@ const FloatingCard = () => {
   return (
     <div
       ref={cardRef}
-      className=" bangers-font tracking-wider bg-gray-100 shadow-2xl rounded-lg p-8 w-96 transition-transform duration-300 hover:scale-105 cursor-default"
+      className="bangers-font tracking-wider bg-gray-100 shadow-2xl rounded-lg p-8 w-full sm:w-96 transition-transform duration-300 hover:scale-105 cursor-default"
     >
       <div className="mb-6">
         <h3 className="text-2xl font-bold mb-3">WEB STACK</h3>
         <p className="text-gray-700">
-          These are the technologies that I personally utilise to create
+          These are the technologies that I personally utilize to create
           responsive websites
         </p>
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-3 sm:grid-cols-4 gap-6">
         <div className="group">
           <FaReact
             className="text-blue-500 text-4xl group-hover:text-blue-700 cursor-pointer transition-transform duration-200"

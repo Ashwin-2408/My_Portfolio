@@ -21,14 +21,13 @@ const CodingProfiles = () => {
         </div>
       </div>
 
-    
-      <div className="flex justify-between items-center space-x-6">
-        
+      {/* Responsive Profile Cards */}
+      <div className="flex flex-col sm:flex-row justify-between items-center space-y-6 sm:space-y-0 sm:space-x-6">
         <a
-          href="https://leetcode.com/u/Ashwin__2408/" 
+          href="https://leetcode.com/u/Ashwin__2408/"
           target="_blank"
           rel="noopener noreferrer"
-          className="profile-card text-center p-8 bg-gray-100 rounded-lg shadow-md hover:shadow-xl transition-all duration-500 w-96 transform hover:scale-110 hover:rotate-3 hover:bg-yellow-50" // rotate left
+          className="profile-card text-center p-8 bg-gray-100 rounded-lg shadow-md hover:shadow-xl transition-all duration-500 w-full sm:w-96 transform hover:scale-110 hover:rotate-3 hover:bg-yellow-50"
         >
           <div className="flex justify-center mb-6">
             <SiLeetcode size={80} className="text-yellow-500" />
@@ -41,7 +40,7 @@ const CodingProfiles = () => {
           href="https://www.codechef.com/users/ashwin2408"
           target="_blank"
           rel="noopener noreferrer"
-          className="profile-card text-center p-8 bg-gray-100 rounded-lg shadow-md hover:shadow-xl transition-all duration-500 w-96 transform hover:scale-110  hover:bg-orange-50" // rotate left
+          className="profile-card text-center p-8 bg-gray-100 rounded-lg shadow-md hover:shadow-xl transition-all duration-500 w-full sm:w-96 transform hover:scale-110 hover:bg-orange-50"
         >
           <div className="flex justify-center mb-6">
             <SiCodechef size={80} className="text-orange-500" />
@@ -58,7 +57,7 @@ const CodingProfiles = () => {
           href="https://github.com/Ashwin-2408"
           target="_blank"
           rel="noopener noreferrer"
-          className="profile-card text-center p-8 bg-gray-100 rounded-lg shadow-md hover:shadow-xl transition-all duration-500 w-96 transform hover:scale-110 hover:-rotate-3 hover:bg-red-50" // rotate left
+          className="profile-card text-center p-8 bg-gray-100 rounded-lg shadow-md hover:shadow-xl transition-all duration-500 w-full sm:w-96 transform hover:scale-110 hover:-rotate-3 hover:bg-red-50"
         >
           <div className="flex justify-center mb-6">
             <FaGithub size={80} className="text-gray-800" />

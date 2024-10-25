@@ -7,7 +7,6 @@ import ProgrammingLanguagesCard from "./Components/Programming_Languages";
 import DevelopmentToolsCard from "./Components/DevelopmentTools";
 import CodingProfiles from "./Components/CodingProfiles";
 
-
 const App = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [isSkillsVisible, setIsSkillsVisible] = useState(false);
@@ -55,23 +54,23 @@ const App = () => {
     <div>
       <Header isVisible={isHeaderVisible} />
       <Hero isHeaderVisible={isHeaderVisible} />
-
       <div
         ref={skillSectionRef}
-        className={`flex justify-between items-stretch mt-[0px] m-4 p-4 space-x-4 transition-all duration-1000 ${
+        className={`flex flex-col items-center mt-4 m-4 p-4 transition-all duration-1000 ${
           isSkillsVisible
             ? "opacity-100 transform translate-y-0"
             : "opacity-0 transform translate-y-12"
         }`}
       >
-        <FloatingCard />
-        <ProgrammingLanguagesCard />
-        <DevelopmentToolsCard />
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <FloatingCard />
+          <ProgrammingLanguagesCard />
+          <DevelopmentToolsCard />
+        </div>
       </div>
       <div className="mt-[50px]">
         <CodingProfiles></CodingProfiles>
       </div>
-      
     </div>
   );
 };

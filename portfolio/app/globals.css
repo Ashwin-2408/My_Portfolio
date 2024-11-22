@@ -5,6 +5,10 @@ body::-webkit-scrollbar {
   display: none; /* Hides the scrollbar */
 }
 
+.lato {
+  font-family: "Lato", sans-serif;
+}
+
 /* styles/globals.css */
 .bangers-font {
   font-family: "Bangers", cursive;
@@ -71,4 +75,20 @@ body {
 }
 html {
   scroll-behavior: smooth;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.blink-cursor {
+  animation: blink 0.8s steps(1) infinite;
 }

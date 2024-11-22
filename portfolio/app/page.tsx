@@ -8,21 +8,12 @@ import DevelopmentToolsCard from "./Components/DevelopmentTools";
 import CodingProfiles from "./Components/CodingProfiles";
 
 const App = () => {
-  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
+  
   const [isSkillsVisible, setIsSkillsVisible] = useState(false);
   const skillSectionRef = useRef(null);
 
-  const handleMouseMove = (event) => {
-    const headerHeight = 80; // Adjust this to your header height
-    setIsHeaderVisible(event.clientY < headerHeight);
-  };
+ 
 
-  useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
 
   // Intersection Observer for the skill card animation
   useEffect(() => {
@@ -51,9 +42,12 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <Header isVisible={isHeaderVisible} />
-      <Hero isHeaderVisible={isHeaderVisible} />
+    <div className="pr-3">
+      <Header />
+      <div className="mt-20">
+      <Hero  />
+      </div>
+      
       <div
         ref={skillSectionRef}
         className={`flex flex-col items-center mt-4 m-4 p-4 transition-all duration-1000 ${

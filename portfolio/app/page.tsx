@@ -6,14 +6,11 @@ import FloatingCard from "./Components/Skillcard";
 import ProgrammingLanguagesCard from "./Components/Programming_Languages";
 import DevelopmentToolsCard from "./Components/DevelopmentTools";
 import CodingProfiles from "./Components/CodingProfiles";
+import Footer from "./Components/Footer";
 
 const App = () => {
-  
   const [isSkillsVisible, setIsSkillsVisible] = useState(false);
   const skillSectionRef = useRef(null);
-
- 
-
 
   // Intersection Observer for the skill card animation
   useEffect(() => {
@@ -42,12 +39,12 @@ const App = () => {
   }, []);
 
   return (
-    <div className="pr-3">
+    <div className="">
       <Header />
       <div className="mt-20">
-      <Hero  />
+        <Hero />
       </div>
-      
+
       <div
         ref={skillSectionRef}
         className={`flex flex-col items-center mt-4 m-4 p-4 transition-all duration-1000 ${
@@ -64,6 +61,9 @@ const App = () => {
       </div>
       <div className="mt-[50px]">
         <CodingProfiles></CodingProfiles>
+      </div>
+      <div>
+        <Footer></Footer>
       </div>
     </div>
   );

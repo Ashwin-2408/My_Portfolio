@@ -46,9 +46,9 @@ const CodingProfiles = () => {
             <SiCodechef size={80} className="text-orange-500" />
           </div>
           <h3 className="text-3xl font-semibold mb-4">CodeChef</h3>
-          <p className="text-gray-600 text-lg">Max Rating - 1595</p>
+          <p className="text-gray-600 text-lg">Max Rating - 1601</p>
           <div className="flex justify-center items-center">
-            <FaStar size={28} className="text-yellow-500 mr-2" />
+            <FaStar size={28} className="text-blue-500 mr-2" />
             <p className="text-gray-600 text-lg">3 Star Coder</p>
           </div>
         </a>

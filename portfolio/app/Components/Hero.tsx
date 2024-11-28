@@ -64,7 +64,7 @@ const Hero = () => {
 
   return (
     <div
-      className={`flex flex-col lg:flex-row justify-between items-center transition-all duration-300 ${
+      className={`flex flex-col lg:flex-row justify-between items-center transition-all duration-300 -mt-4 ${
         isMobile ? "mt-10" : ""
       }`}
     >
@@ -111,17 +111,17 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="mt-7 mx-[-50px] h-[140px] flex flex-col justify-center">
+        <div className="mt-7 mx-[-50px] h-[140px] flex flex-col justify-center ">
           <h2 className="text-3xl lg:text-6xl font-bold text-black lato text-center lg:text-left">
             FULL STACK DEVELOPER AND
           </h2>
-          <h2 className="text-3xl lg:text-6xl font-bold text-black lato text-center lg:text-left">
+          <h2 className="text-3xl lg:text-6xl font-bold text-black lato text-center lg:text-left ">
             COMPETITIVE PROGRAMMER
           </h2>
         </div>
       </div>
 
-      <div className="relative lg:w-1/3 w-full">
+      <div className="relative lg:w-1/3 w-full ">
         <AboutMe></AboutMe>
       </div>
     </div>

@@ -1,24 +1,19 @@
 "use client";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLinkedin,
-  faGithub,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
-import {
-  faHome,
-  faUser,
-  faFolderOpen,
-} from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const Header = () => {
+const Header = ({ fixed = true }) => {
   const [isSticky, setIsSticky] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleScroll = () => {
     setIsSticky(window.scrollY > 100);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   useEffect(() => {
@@ -30,64 +25,56 @@ const Header = () => {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-4 md:py-6 bg-white shadow-md transition-transform duration-300 `}
+      className={`${
+        fixed ? "fixed top-0 left-0 w-full z-50" : "relative"
+      } px-6 py-6 bg-white transition-all duration-300 ${
+        isSticky ? "shadow-md" : ""
+      }`}
     >
       <div className="flex justify-between items-center">
-       
-        <nav className="flex items-center gap-6 md:gap-12">
-          <NavLink href="/" icon={faHome} label="HOME" />
-          <NavLink href="/About" icon={faUser} label="ABOUT" />
-          <NavLink href="/projects" icon={faFolderOpen} label="PROJECTS" />
-        </nav>
-
-        
-        <Link
-          href="/"
-          className="w-12 h-12 flex items-center justify-center bg-[#3B82F6] text-white text-xl font-bold rounded-full shadow-md"
-        >
-          AT
+        {/* Logo Section */}
+        <Link href="/" className="flex items-center gap-4">
+          <Image
+            src="/Images/personal21.jpg" // Replace this with your logo's path
+            alt="Logo"
+            width={80} // Adjusted logo size
+            height={80}
+          />
+          <span className="text-2xl uppercase font-bold text-black">
+            ASHWIN
+          </span>
         </Link>
 
-      
-        <div className="flex items-center gap-4 md:gap-6">
-          <SocialLink
-            href="https://www.linkedin.com/in/ashwin-t-97b383290"
-            icon={faLinkedin}
-            color="#0A66C2"
-          />
-          <SocialLink href="https://github.com/Ashwin-2408" icon={faGithub} />
-          <SocialLink
-            href="https://www.instagram.com/"
-            icon={faInstagram}
-            color="#E4405F"
-          />
-        </div>
+        {/* Mobile Menu Toggle Button */}
+        <button
+          className="block sm:hidden text-2xl text-gray-800"
+          onClick={toggleMobileMenu}
+        >
+          {isMobileMenuOpen ? "X" : "☰"}
+        </button>
+
+        {/* Navigation Links */}
+        <nav
+          className={`${
+            isMobileMenuOpen ? "block flex-col items-center gap-4" : "hidden"
+          } sm:flex sm:flex-row sm:gap-8 sm:items-center`}
+        >
+          <NavLink href="/" label="Home" />
+          <NavLink href="/About" label="About" />
+          <NavLink href="/portfolio" label="Projects" />
+          <NavLink href="/contact" label="Contact" />
+        </nav>
       </div>
     </motion.header>
   );
 };
 
-const NavLink = ({ href, icon, label }) => (
+const NavLink = ({ href, label }) => (
   <Link
     href={href}
-    className="flex items-center gap-2 text-black hover:text-[#3B82F6] font-semibold transition-colors"
+    className="text-lg text-gray-800 hover:text-[#3B82F6] font-semibold transition-colors"
   >
-    <FontAwesomeIcon icon={icon} className="text-lg md:text-xl" />
-    <span className="hidden md:inline">{label}</span>
-  </Link>
-);
-
-const SocialLink = ({ href, icon, color = "#333" }) => (
-  <Link
-    href={href}
-    target="_blank"
-    className="transition-transform hover:scale-110"
-  >
-    <FontAwesomeIcon
-      icon={icon}
-      style={{ color }}
-      className="text-xl md:text-2xl"
-    />
+    {label}
   </Link>
 );
 

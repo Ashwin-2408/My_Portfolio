@@ -65,16 +65,18 @@ const Education_Section = () => {
           ].map((item, index) => (
             <div
               key={index}
-              className="timeline-item mb-12 pl-16 relative group"
+              className="timeline-item mb-12 pl-0 sm:pl-16 relative group"
               ref={(el) => {
                 // Ensure timelineItemsRef is populated correctly
                 timelineItemsRef.current[index] = el;
               }}
             >
-              <div className="absolute top-0 left-10 w-6 h-6 bg-gray-800 rounded-full shadow-lg group-hover:scale-125 transition-transform duration-300"></div>
-              <div className="ml-8 bg-white rounded-lg shadow-md p-4 border border-gray-200">
-                <div className="flex justify-between items-center w-full">
-                  <span className="text-base font-medium italic text-black">
+              {/* Timeline dot - visible only on larger screens */}
+              <div className="hidden sm:block absolute top-0 left-10 w-6 h-6 bg-gray-800 rounded-full shadow-lg group-hover:scale-125 transition-transform duration-300"></div>
+
+              <div className="ml-0 sm:ml-8 bg-white rounded-lg shadow-md p-4 border border-gray-200">
+                <div className="flex flex-col sm:flex-row justify-between items-start w-full">
+                  <span className="text-base font-medium italic text-black mb-2 sm:mb-0">
                     {item.title}
                   </span>
                   <span className="text-base font-medium text-black">

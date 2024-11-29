@@ -11,7 +11,6 @@ function Footer() {
   return (
     <footer className="bg-black text-white py-6">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-      
         <div className="text-center md:text-left mb-4 md:mb-0">
           <span>
             &copy; {new Date().getFullYear()} Ashwin. All rights reserved.
@@ -21,21 +20,21 @@ function Footer() {
         {/* Social Media Links */}
         <div className="flex gap-6">
           <Link
-            href="https://www.linkedin.com/in/your-linkedin-profile"
+            href="https://www.linkedin.com/in/ashwin-t-97b383290"
             target="_blank"
             className="text-white hover:text-blue-600"
           >
             <FontAwesomeIcon icon={faLinkedin} size="lg" />
           </Link>
           <Link
-            href="https://github.com/your-github-profile"
+            href="https://github.com/Ashwin-2408"
             target="_blank"
             className="text-white hover:text-gray-600"
           >
             <FontAwesomeIcon icon={faGithub} size="lg" />
           </Link>
           <Link
-            href="https://www.instagram.com/your-instagram-profile"
+            href="https://www.instagram.com/__ashwin__2408/"
             target="_blank"
             className="text-white hover:text-pink-500"
           >

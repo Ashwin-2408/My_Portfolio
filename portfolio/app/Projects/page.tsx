@@ -27,7 +27,7 @@ const portfolioProjects = [
       "Get realtime spending insights",
       "Categorized over 100 expense streams",
     ],
-    imageUrl: "/Images/Moneymate.png",
+    imageUrl: "/Images/image.png",
     liveSiteUrl: "https://github.com/Ashwin-2408/moneymate-client",
   },
   {

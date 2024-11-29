@@ -65,7 +65,7 @@ const Hero = () => {
           <motion.div
             className={`${
               isMobile ? "w-48 h-48" : "w-64 h-64"
-            } bg-gray-300 rounded-full overflow-hidden shadow-md mt-8`}
+            } bg-gray-300 rounded-full overflow-hidden  mt-8`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}

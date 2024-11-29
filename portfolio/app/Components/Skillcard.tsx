@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa"; // FaJsSquare for Vanilla JavaScript
 import { SiNextdotjs, SiTailwindcss, SiFlask } from "react-icons/si";
 
+// Define the techInfo object with detailed information about each tech
 const techInfo = {
   react: {
     name: "React",
@@ -55,17 +56,26 @@ const techInfo = {
   },
 };
 
-const FloatingCard = () => {
-  const [selectedTech, setSelectedTech] = useState(null);
-  const cardRef = useRef(null);
+// Define the type of the selectedTech object or null
+type TechKey = keyof typeof techInfo;
 
-  const handleIconClick = (tech) => {
+const FloatingCard = () => {
+  // Explicitly type the state for selectedTech
+  const [selectedTech, setSelectedTech] = useState<
+    (typeof techInfo)[TechKey] | null
+  >(null);
+
+  const cardRef = useRef<HTMLDivElement | null>(null);
+
+  // Explicitly type the 'tech' parameter in the handleIconClick function
+  const handleIconClick = (tech: TechKey) => {
     setSelectedTech(techInfo[tech]);
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (cardRef.current && !cardRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      // Check if the target is outside the cardRef
+      if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
         setSelectedTech(null);
       }
     };

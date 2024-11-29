@@ -1,10 +1,14 @@
-"use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const Header = ({ fixed = true }) => {
+interface NavLinkProps {
+  href: string;
+  label: string;
+}
+
+const Header = ({ fixed = true }: { fixed?: boolean }) => {
   const [isSticky, setIsSticky] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -68,7 +72,8 @@ const Header = ({ fixed = true }) => {
   );
 };
 
-const NavLink = ({ href, label }) => (
+// Define the NavLinkProps interface
+const NavLink: React.FC<NavLinkProps> = ({ href, label }) => (
   <Link
     href={href}
     className="text-lg text-gray-800 hover:text-[#3B82F6] font-semibold transition-colors"

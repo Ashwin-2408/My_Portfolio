@@ -1,13 +1,8 @@
 "use client";
 import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLinkedin,
-  faGithub,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
+
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+
 import Link from "next/link";
 
 const Normal_Header = () => {

@@ -75,7 +75,7 @@ const CodingProfiles = () => {
           <div className="w-2/3 border-t border-gray-300"></div>
         </div>
         <div className="relative flex justify-center">
-          <span className="bg-white px-4 text-gray-500">Let's code!</span>
+          <span className="bg-white px-4 text-gray-500">Let`&apos;`s code!</span>
         </div>
       </div>
     </section>

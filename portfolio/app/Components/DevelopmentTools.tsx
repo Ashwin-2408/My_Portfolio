@@ -7,6 +7,7 @@ import {
   SiJupyter,
 } from "react-icons/si";
 
+// Define the type of each tool's info
 const toolInfo = {
   git: {
     name: "Git",
@@ -40,17 +41,21 @@ const toolInfo = {
   },
 };
 
-const DevelopmentToolsCard = () => {
-  const [selectedTool, setSelectedTool] = useState(null);
-  const cardRef = useRef(null);
+type ToolInfo = (typeof toolInfo)[keyof typeof toolInfo]; // Get the type for the toolInfo values
 
-  const handleIconClick = (tool) => {
+const DevelopmentToolsCard = () => {
+  const [selectedTool, setSelectedTool] = useState<ToolInfo | null>(null); // Use ToolInfo type
+  const cardRef = useRef<HTMLDivElement>(null); // Explicitly type the ref to HTMLDivElement
+
+  // Type tool as keyof typeof toolInfo (which restricts it to the keys of toolInfo)
+  const handleIconClick = (tool: keyof typeof toolInfo) => {
     setSelectedTool(toolInfo[tool]);
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (cardRef.current && !cardRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
+        // Cast event.target to Node
         setSelectedTool(null);
       }
     };
@@ -60,7 +65,7 @@ const DevelopmentToolsCard = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [cardRef]);
+  }, []);
 
   return (
     <div
@@ -70,12 +75,9 @@ const DevelopmentToolsCard = () => {
     >
       <div className="mb-6">
         <h3 className="text-2xl font-bold mb-3">Development Tools</h3>
-        <p className="text-gray-700">
-          List of development tools that I use
-        </p>
+        <p className="text-gray-700">List of development tools that I use</p>
       </div>
 
-  
       <div className="grid grid-cols-3 gap-5">
         <div className="flex justify-center items-center h-full">
           <FaGit
@@ -121,7 +123,6 @@ const DevelopmentToolsCard = () => {
         </div>
       </div>
 
-      
       {selectedTool && (
         <div className="mt-6 p-4 bg-gray-200 rounded-lg shadow-inner">
           <h4 className="text-xl font-bold">{selectedTool.name}</h4>

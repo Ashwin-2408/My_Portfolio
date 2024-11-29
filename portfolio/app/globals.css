@@ -47,7 +47,7 @@ body {
   animation: rollIn 0.5s ease forwards; /* Customize duration and easing */
 }
 
-. .left-button {
+ .left-button {
   left: 20px;
 }
 

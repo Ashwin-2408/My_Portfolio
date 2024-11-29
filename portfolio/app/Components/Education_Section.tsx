@@ -1,24 +1,26 @@
-"use client";
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import styles from "./Education_Section.module.css";
 
 const Education_Section = () => {
-  const timelineItemsRef = useRef([]);
+  // Update the ref to be an array of HTMLDivElement elements
+  const timelineItemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     timelineItemsRef.current.forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          delay: index * 0.2,
-          ease: "power3.out",
-        }
-      );
+      if (card) {
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: index * 0.2,
+            ease: "power3.out",
+          }
+        );
+      }
     });
   }, []);
 
@@ -64,7 +66,10 @@ const Education_Section = () => {
             <div
               key={index}
               className="timeline-item mb-12 pl-16 relative group"
-              ref={(el) => (timelineItemsRef.current[index] = el)}
+              ref={(el) => {
+                // Ensure timelineItemsRef is populated correctly
+                timelineItemsRef.current[index] = el;
+              }}
             >
               <div className="absolute top-0 left-10 w-6 h-6 bg-gray-800 rounded-full shadow-lg group-hover:scale-125 transition-transform duration-300"></div>
               <div className="ml-8 bg-white rounded-lg shadow-md p-4 border border-gray-200">

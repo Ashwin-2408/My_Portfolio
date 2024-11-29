@@ -4,12 +4,7 @@ import Image from "next/image";
 import AboutMe from "./Hero3DAnimation"; // New 3D animation component
 
 const TYPING_TEXTS = ["{ASHWIN} "];
-const QUOTES = [
-  "Code is like humor. When you have to explain it, it's bad.",
-  "Simplicity is the soul of efficiency.",
-  "First, solve the problem. Then, write the code.",
-  "Experience is the name everyone gives to their mistakes.",
-];
+
 
 const Hero = () => {
   const [text, setText] = useState("");
@@ -17,7 +12,7 @@ const Hero = () => {
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [quoteIndex, setQuoteIndex] = useState(0);
+  
 
   useEffect(() => {
     const handleResize = () => {
@@ -46,12 +41,7 @@ const Hero = () => {
     }
   }, [charIndex, isDeleting, index]); // Removed `isMobile` dependency
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setQuoteIndex((prev) => (prev + 1) % QUOTES.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+ 
 
   const handleDownload = () => {
     const link = document.createElement("a");

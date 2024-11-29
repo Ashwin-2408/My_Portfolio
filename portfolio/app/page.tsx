@@ -14,6 +14,8 @@ const App = () => {
 
   // Intersection Observer for the skill card animation
   useEffect(() => {
+    const currentRef = skillSectionRef.current; // Store the current value of ref
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -27,13 +29,14 @@ const App = () => {
       { threshold: 0.2 } // Adjust threshold to trigger the animation earlier or later
     );
 
-    if (skillSectionRef.current) {
-      observer.observe(skillSectionRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
+    // Cleanup function that uses the stored `currentRef`
     return () => {
-      if (skillSectionRef.current) {
-        observer.unobserve(skillSectionRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);

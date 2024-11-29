@@ -30,17 +30,29 @@ const langInfo = {
   },
 };
 
-const ProgrammingLanguagesCard = () => {
-  const [selectedLang, setSelectedLang] = useState(null);
-  const cardRef = useRef(null);
+type LangKey = keyof typeof langInfo;
 
-  const handleIconClick = (lang) => {
+// Define the type of the selected language state
+type SelectedLang = {
+  name: string;
+  description: string;
+} | null;
+
+const ProgrammingLanguagesCard = () => {
+  const [selectedLang, setSelectedLang] = useState<SelectedLang>(null);
+
+  // Explicitly type cardRef with the HTMLDivElement type
+  const cardRef = useRef<HTMLDivElement | null>(null);
+
+  // Explicitly type the 'lang' parameter as 'LangKey'
+  const handleIconClick = (lang: LangKey) => {
     setSelectedLang(langInfo[lang]);
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (cardRef.current && !cardRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      // Check if the target is outside the cardRef
+      if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
         setSelectedLang(null);
       }
     };

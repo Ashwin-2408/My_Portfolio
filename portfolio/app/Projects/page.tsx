@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import Image from "next/image"; // Import Image component from next/image
 
 const portfolioProjects = [
   {
@@ -103,10 +104,13 @@ const Project = () => {
               }}
             >
               <div className="mb-4">
-                <img
+                {/* Replace img with Image component */}
+                <Image
                   src={project.imageUrl}
                   alt={project.title}
-                  className="w-full h-40 object-cover rounded-lg border border-black"
+                  width={400} // Provide the width and height for image
+                  height={160} // Provide the height to maintain aspect ratio
+                  className="object-cover rounded-lg border border-black"
                 />
               </div>
 

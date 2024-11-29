@@ -6,18 +6,17 @@ import styles from "./Education_Section.module.css";
 const Education_Section = () => {
   const timelineItemsRef = useRef([]);
 
-  // Apply animations to timeline items on mount
   useEffect(() => {
     timelineItemsRef.current.forEach((card, index) => {
       gsap.fromTo(
         card,
-        { opacity: 0, y: 20 }, // Initial state: hidden and below
+        { opacity: 0, y: 20 },
         {
-          opacity: 1, // Final state: visible
-          y: 0, // Final state: at original position
-          duration: 0.8, // Animation duration (0.8s)
-          delay: index * 0.2, // Staggered animation
-          ease: "power3.out", // Easing effect for smooth transition
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: index * 0.2,
+          ease: "power3.out",
         }
       );
     });
@@ -25,7 +24,6 @@ const Education_Section = () => {
 
   return (
     <div className="flex flex-col md:flex-row h-full w-full bg-white text-gray-800">
-      {/* Left Section: "Education" Text */}
       <div className="flex items-center justify-center w-full md:w-1/4 bg-white p-4">
         <h1 className="text-2xl sm:text-3xl md:text-3xl font-bold uppercase tracking-wider text-gray-800">
           Education
@@ -33,7 +31,6 @@ const Education_Section = () => {
       </div>
       <div className="w-[1px] bg-gray-300 h-full lg:block hidden"></div>
 
-      {/* Right Section: Timeline */}
       <div
         role="region"
         aria-label="Education Timeline"
@@ -41,7 +38,6 @@ const Education_Section = () => {
         className="flex-1 p-4 md:p-8 relative"
       >
         <div className={`${styles.timeline} relative`}>
-          {/* Mapping through education data */}
           {[
             {
               year: "2018 - 2020",
@@ -84,7 +80,7 @@ const Education_Section = () => {
                 <h4 className="text-md font-medium text-gray-600">
                   {item.school}
                 </h4>
-                <p className="text-gray-600 text-sm mt-2">{item.description}</p>
+                <p className="text-black text-sm mt-2">{item.description}</p>
               </div>
             </div>
           ))}

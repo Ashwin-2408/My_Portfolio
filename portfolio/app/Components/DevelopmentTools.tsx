@@ -75,7 +75,7 @@ const DevelopmentToolsCard = () => {
         </p>
       </div>
 
-      {/* Responsive grid layout for icons */}
+  
       <div className="grid grid-cols-3 gap-5">
         <div className="flex justify-center items-center h-full">
           <FaGit
@@ -121,7 +121,7 @@ const DevelopmentToolsCard = () => {
         </div>
       </div>
 
-      {/* Tool information display */}
+      
       {selectedTool && (
         <div className="mt-6 p-4 bg-gray-200 rounded-lg shadow-inner">
           <h4 className="text-xl font-bold">{selectedTool.name}</h4>

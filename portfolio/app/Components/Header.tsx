@@ -61,8 +61,7 @@ const Header = ({ fixed = true }) => {
         >
           <NavLink href="/" label="Home" />
           <NavLink href="/About" label="About" />
-          <NavLink href="/portfolio" label="Projects" />
-          <NavLink href="/contact" label="Contact" />
+          <NavLink href="/Projects" label="Projects" />
         </nav>
       </div>
     </motion.header>

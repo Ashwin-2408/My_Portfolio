@@ -11,7 +11,7 @@ function Footer() {
   return (
     <footer className="bg-black text-white py-6">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        {/* Copyright */}
+      
         <div className="text-center md:text-left mb-4 md:mb-0">
           <span>
             &copy; {new Date().getFullYear()} Ashwin. All rights reserved.

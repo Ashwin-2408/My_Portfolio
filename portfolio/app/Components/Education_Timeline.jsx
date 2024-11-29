@@ -18,18 +18,18 @@ function Education_Timeline() {
       setIsDesktop(desktop);
     };
 
-    // Check initial screen size
+    
     checkScreenSize();
 
-    // Add event listener to check screen size
+    
     window.addEventListener("resize", checkScreenSize);
 
-    // Cleanup event listener
+    
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
   useEffect(() => {
-    // Only apply horizontal scrolling on desktop
+  
     if (isDesktop && sectionRef.current && triggerRef.current) {
       const sections = gsap.utils.toArray(".panel");
 
@@ -47,7 +47,7 @@ function Education_Timeline() {
         },
       });
 
-      // Cleanup function to kill the ScrollTrigger when component unmounts or screen size changes
+      
       return () => {
         scrollTween.scrollTrigger?.kill();
       };
@@ -57,7 +57,7 @@ function Education_Timeline() {
   return (
     <div ref={triggerRef} className="w-full overflow-hidden relative">
       {isDesktop ? (
-        // Desktop horizontal layout
+        
         <div ref={sectionRef} className="flex w-[200vw] h-screen">
           <div className="panel w-[100vw] h-full">
             <Education_Section />
@@ -67,7 +67,7 @@ function Education_Timeline() {
           </div>
         </div>
       ) : (
-        // Mobile/Tablet vertical layout
+       
         <div className="flex flex-col w-full">
           <div className="w-full">
             <Education_Section />
